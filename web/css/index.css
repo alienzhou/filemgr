@@ -1,0 +1,105 @@
+body {
+    background-color: #000000;
+}
+
+.container {
+    padding: 0px 25px 25px 25px;
+    width: 500px;
+    margin: 70px auto 70px auto;
+    background-color: #333333;
+    -webkit-box-shadow: 0px 0px 10px #999999;
+    -moz-box-shadow: 0px 0px 10px #999999;
+    box-shadow: 0px 0px 10px #999999;
+    position: relative;
+}
+
+.info{
+    display: block;
+    height: 18px;
+    width: 18px;
+    line-height: 18px;
+    text-align: center;
+    font-size: 12px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #666666;
+    color: #333333;
+    cursor: pointer;
+    position: absolute;
+    right: 25px;
+    top: 25px;
+}
+
+h1 {
+    display: inline-block;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 700;
+    border-bottom: 4px solid #fa8919;
+    moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+h1:first-letter {
+    font-size: 75px;
+    font-weight: 200;
+    color: #666666;
+    letter-spacing: -20px;
+}
+
+form:first-child {
+    margin-bottom: 30px;
+}
+
+.input-area{
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #333333;
+    height: 30px;
+    width: 195px;
+    margin-right: 5px;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+}
+
+.input-area:focus {
+    border-color: #fa8919;
+}
+
+input[type="file"]{
+    margin-right: 5px;
+    height: 30px;
+    width: 195px;
+    color: #ffffff;
+}
+
+input[type="submit"] {
+    margin-left: 20px;
+    width: auto;
+    cursor: pointer;
+    height: 30px;
+    padding: 0px 12px 2px 12px;
+    font-size: 16px;
+    line-height: 24px;
+    border: none;
+    background-color: #fa8919;
+    color: #ffffff;
+    -webkit-transition: background-color 0.1s;
+    -moz-transition: background-color 0.1s;
+    -ms-transition: background-color 0.1s;
+    -o-transition: background-color 0.1s;
+    transition: background-color 0.1s;
+}
+
+input[type="submit"]:hover {
+    background-color: #F39B4D;
+}
+

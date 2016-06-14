@@ -8,22 +8,28 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>iioo</title>
+    <title>iioo</title>
+    <link rel="stylesheet" href="css/index.css"/>
 </head>
 <body>
 <div>
-  <p>噼里啪啦</p>
-  <form action="upload" method="post" enctype="multipart/form-data">
-    <input type="password" name="number"><br>
-    <input type="file" name="file"><br>
-    <input type="submit" value="去吧">
-  </form>
+    <div class="container">
+        <span class="info">i</span>
 
-  <form action="download" method="get">
-    <input type="password" name="number"><br>
-    <input type="text" name="fname"><br>
-    <input type="submit" value="来吧">
-  </form>
+        <h1>Upload</h1>
+        <form action="upload" method="post" enctype="multipart/form-data">
+            <input type="password" class="input-area" name="number">
+            <input type="file" name="file">
+            <input type="submit" value="去吧">
+        </form>
+
+        <h1>Download</h1>
+        <form action="download" method="get">
+            <input type="password" class="input-area" name="number">
+            <input type="text" class="input-area" name="fname">
+            <input type="submit" value="来吧">
+        </form>
+    </div>
 </div>
 </body>
 </html>
