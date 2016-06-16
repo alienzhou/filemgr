@@ -23,11 +23,12 @@ public class FileDownloadServlet implements Filter {
         HttpServletResponse resp = (HttpServletResponse) response;
         String fn = request.getParameter("fname");
         String number = request.getParameter("number");
-        if (number.isEmpty() || !number.equals("iioo")) {
+        if (number.isEmpty() || !number.equals("didids")) {
             return;
         }
         try {
-            String path = "E:/file/" + fn;
+            //String path = "/home/xiaoju/sync/" + fn;
+            String path = "E:/file" + fn;
             // path是指欲下载的文件的路径。
             File file = new File(path);
             // 取得文件名。

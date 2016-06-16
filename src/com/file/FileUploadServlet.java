@@ -18,7 +18,7 @@ import javax.servlet.http.Part;
  * Created by AlienZHOU on 2016/6/13.
  */
 @WebServlet(asyncSupported = true, name = "upload", urlPatterns = "/upload")
-@MultipartConfig(fileSizeThreshold = 10000, maxFileSize = 1000000, maxRequestSize = 1000000)
+@MultipartConfig(fileSizeThreshold = 50 * 1024 * 1024, maxFileSize = 1024 * 1024 * 1024, maxRequestSize = 1024 * 1024 * 1024)
 public class FileUploadServlet extends HttpServlet {
 
     /**
@@ -35,15 +35,16 @@ public class FileUploadServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
         String number = request.getParameter("number");
-        if (number.isEmpty() || !number.equals("ioio")) {
+        if (number.isEmpty() || !number.equals("didids")) {
             PrintWriter out = response.getWriter();
-            out.println("崩崩崩");
+            out.println("密码错误");
             out.flush();
             out.close();
             return;
         }
         //存储路径
         //String savePath = request.getServletContext().getRealPath("/WEB-INF/uploadFile");
+        //String savePath = "/home/xiaoju/sync/";
         String savePath = "E:/file";
         //获取上传的文件集合
         Collection<Part> parts = request.getParts();
@@ -51,13 +52,13 @@ public class FileUploadServlet extends HttpServlet {
         if (parts.size() == 2) {//上传单个文件，参数为2
             //通过Part对上传的文件进行操作
             Part part = request.getPart("file");
-            //Servlet3需要通过请求头解析文件名，请求头的格式：form-data; name="file"; filename="xxx.xx"
+            //通过请求头解析文件名，请求头的格式：form-data; name="file"; filename="xxx.xx"
             System.out.println(part.getHeaderNames());
             String header = part.getHeader("content-disposition");
             String fileName = getFileName(header);
             //写到指定路径
             part.write(savePath + File.separator + fileName);
-        } else {//上传多个文件
+        } else {//上传多个文件，暂时没有用到
             int i = 0;
             for (Part part : parts) {
                 i++;

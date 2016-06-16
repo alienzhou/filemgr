@@ -20,14 +20,14 @@
         <form action="upload" method="post" enctype="multipart/form-data">
             <input type="password" class="input-area" name="number">
             <input type="file" name="file">
-            <input type="submit" value="去吧">
+            <input type="submit" value="上传">
         </form>
 
         <h1>Download</h1>
         <form action="download" method="get">
             <input type="password" class="input-area" name="number">
             <input type="text" class="input-area" name="fname">
-            <input type="submit" value="来吧">
+            <input type="submit" value="下载">
         </form>
     </div>
 </div>
