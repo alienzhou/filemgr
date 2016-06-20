@@ -1,6 +1,7 @@
 package com.file;
 
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.List;
+import java.util.concurrent.ThreadFactory;
 
 /**
  * Created by zhouhongxuan on 2016/6/20.
@@ -22,6 +24,13 @@ public class FileManger extends HttpServlet {
         String uri = request.getRequestURI();
         String action = uri.substring(uri.lastIndexOf("/") + 1, uri.lastIndexOf("."));
         switch (action) {
+            case "check":
+                try {
+                    this.check(request, response);
+                } catch (FileUploadException e) {
+                    e.printStackTrace();
+                }
+                break;
             case "upload":
                 this.upload(request, response);
                 break;
@@ -29,7 +38,11 @@ public class FileManger extends HttpServlet {
                 this.download(request, response);
                 break;
             case "progress":
-                this.progress(request, response);
+                try {
+                    this.progress(request, response);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 break;
             default:
                 write("bad request", response);
@@ -114,10 +127,21 @@ public class FileManger extends HttpServlet {
         }
     }
 
-    private void progress(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void progress(HttpServletRequest request, HttpServletResponse response) throws IOException, InterruptedException {
         HttpSession session = request.getSession();
         String percent = session.getAttribute("percent").toString();
         write(percent, response);
+    }
+
+    private void check(HttpServletRequest request, HttpServletResponse response) throws IOException, FileUploadException {
+        String msg = "";
+        String number = request.getParameter("number");
+        if (!this.passJudge(number)) {
+            msg = "0";
+        } else {
+            msg = "1";
+        }
+        write(msg, response);
     }
 
     private boolean passJudge(String number) {

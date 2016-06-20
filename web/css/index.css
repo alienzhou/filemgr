@@ -51,7 +51,11 @@ body {
     background: #BA0805;
     width: 0%;
     height: 10px;
-    transition: width 0.2s linear;
+    -webkit-transition: width 0.3s;
+    -moz-transition: width 0.3s;
+    -ms-transition: width 0.3s;
+    -o-transition: width 0.3s;
+    transition: width 0.3s;
 }
 
 .percent {
@@ -86,7 +90,7 @@ body {
     color: #ffffff;
 }
 
-.show-percent{
+.show-percent {
     bottom: 20px;
     opacity: 1;
     -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
@@ -98,9 +102,9 @@ body {
     width: 600px;
     margin: 0px auto 70px auto;
     background-color: #333333;
-    -webkit-box-shadow: 0px 0px 10px #999999;
-    -moz-box-shadow: 0px 0px 10px #999999;
-    box-shadow: 0px 0px 10px #999999;
+    -webkit-box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.5);
     position: relative;
 }
 
@@ -204,6 +208,7 @@ input[type="submit"]:hover {
     width: 100%;
     font-size: 16px;
     color: #ffffff;
+    margin-top: 10px;
 }
 
 @keyframes bgani {

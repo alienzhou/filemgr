@@ -26,8 +26,8 @@
 
     <h1>Upload</h1>
     <form id="upload-form" action="upload.do" method="post" enctype="multipart/form-data">
-        <input type="password" class="input-area" name="number">
-        <input type="file" name="file">
+        <input id="number" type="password" class="input-area" name="number">
+        <input id="file" type="file" name="file">
         <input type="submit" value="上传">
         <div id="up-info" class="tip"></div>
     </form>
