@@ -1,11 +1,102 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
 body {
-    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    padding-top: 70px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.gradient {
+    width: 100%;
+    height: 5000px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(#FFAE3D, #EDED6F, #4BEA75, #4BEAD0, #4BEA75, #EDED6F, #FFAE3D);
+    background: -o-linear-gradient(#FFAE3D, #EDED6F, #4BEA75, #4BEAD0, #4BEA75, #EDED6F, #FFAE3D);
+    background: -ms-linear-gradient(#FFAE3D, #EDED6F, #4BEA75, #4BEAD0, #4BEA75, #EDED6F, #FFAE3D);
+    background: -webkit-linear-gradient(#FFAE3D, #EDED6F, #4BEA75, #4BEAD0, #4BEA75, #EDED6F, #FFAE3D);
+    background: -moz-linear-gradient(#FFAE3D, #EDED6F, #4BEA75, #4BEAD0, #4BEA75, #EDED6F, #FFAE3D);
+    z-index: -1;
+}
+
+.bg-animation {
+    animation: bgani 20s infinite;
+    -webkit-animation: bgani 20s infinite;
+    -moz-animation: bgani 20s infinite;
+    -ms-animation: bgani 20s infinite;
+    -o-animation: bgani 20s infinite;
+}
+
+.progress-bar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+}
+
+.progress-bar > div {
+    background: #BA0805;
+    width: 0%;
+    height: 10px;
+    transition: width 0.2s linear;
+}
+
+.percent {
+    position: fixed;
+    bottom: 50px;
+    left: 0;
+    width: 160px;
+    text-align: right;
+    padding-right: 30px;
+    opacity: 0;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.percent > .num {
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.percent > .fix {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.show-percent{
+    bottom: 20px;
+    opacity: 1;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 }
 
 .container {
     padding: 0px 25px 25px 25px;
-    width: 500px;
-    margin: 70px auto 70px auto;
+    width: 600px;
+    margin: 0px auto 70px auto;
     background-color: #333333;
     -webkit-box-shadow: 0px 0px 10px #999999;
     -moz-box-shadow: 0px 0px 10px #999999;
@@ -13,7 +104,7 @@ body {
     position: relative;
 }
 
-.info{
+.info {
     display: block;
     height: 18px;
     width: 18px;
@@ -39,11 +130,11 @@ h1 {
     border-bottom: 4px solid #fa8919;
     moz-user-select: -moz-none;
     -moz-user-select: none;
-    -o-user-select:none;
-    -khtml-user-select:none;
-    -webkit-user-select:none;
-    -ms-user-select:none;
-    user-select:none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 h1:first-letter {
@@ -57,7 +148,11 @@ form:first-child {
     margin-bottom: 30px;
 }
 
-.input-area{
+form::after {
+    clear: both;
+}
+
+.input-area {
     padding-left: 10px;
     padding-right: 10px;
     color: #333333;
@@ -74,7 +169,7 @@ form:first-child {
     border-color: #fa8919;
 }
 
-input[type="file"]{
+input[type="file"] {
     margin-right: 5px;
     height: 30px;
     width: 195px;
@@ -82,6 +177,7 @@ input[type="file"]{
 }
 
 input[type="submit"] {
+    float: right;
     margin-left: 20px;
     width: auto;
     cursor: pointer;
@@ -103,3 +199,73 @@ input[type="submit"]:hover {
     background-color: #F39B4D;
 }
 
+.tip {
+    height: 20px;
+    width: 100%;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+@keyframes bgani {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: -4000px;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@-moz-keyframes bgani /* Firefox */
+{
+    0% {
+        top: 0;
+    }
+    50% {
+        top: -4000px;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@-webkit-keyframes bgani /* Safari 和 Chrome */
+{
+    0% {
+        top: 0;
+    }
+    50% {
+        top: -4000px;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@-o-keyframes bgani /* Opera */
+{
+    0% {
+        top: 0;
+    }
+    50% {
+        top: -4000px;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@-ms-keyframes bgani /* ms */
+{
+    0% {
+        top: 0;
+    }
+    50% {
+        top: -4000px;
+    }
+    100% {
+        top: 0;
+    }
+}
