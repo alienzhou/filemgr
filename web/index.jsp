@@ -22,21 +22,25 @@
 </div>
 
 <div class="container">
+    <div class="mask">
+        <div class="loading"></div>
+    </div>
     <span class="info">i</span>
 
     <h1>Upload</h1>
     <form id="upload-form" action="upload.do" method="post" enctype="multipart/form-data">
-        <input type="password" class="input-area" name="number">
-        <input type="file" name="file">
-        <input type="submit" value="上传">
+        <input id="number" type="password" class="input-area" name="number">
+        <input id="file" type="file" name="file">
+        <input type="submit" value="UPLOAD">
         <div id="up-info" class="tip"></div>
     </form>
 
     <h1>Download</h1>
-    <form action="download.do" method="get">
-        <input type="password" class="input-area" name="number">
+    <form id="download-form" action="download.do" method="get" onSubmit="return checkDownlod();" target="#do-info">
+        <input id="do-number" type="password" class="input-area" name="number">
         <input type="text" class="input-area" name="fname">
-        <input type="submit" value="下载">
+        <input type="submit" value="DOWNLOAD">
+        <div id="do-info" class="tip"></div>
     </form>
 </div>
 </body>
