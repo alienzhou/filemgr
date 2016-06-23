@@ -167,6 +167,7 @@ body {
     position: absolute;
     right: 25px;
     top: 25px;
+    overflow: hidden;
 }
 
 h1 {

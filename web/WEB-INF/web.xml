@@ -15,4 +15,20 @@
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
 
+    <!--用来启动 log4jConfigLocation的servlet -->
+    <servlet>
+        <servlet-name>InitConfig</servlet-name>
+        <servlet-class>com.init.InitConfig</servlet-class>
+        <init-param>
+            <param-name>log4j-properties-location</param-name>
+            <param-value>/WEB-INF/classes/log4j.properties</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>InitConfig</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+
 </web-app>

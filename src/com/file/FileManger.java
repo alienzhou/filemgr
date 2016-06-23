@@ -4,6 +4,8 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.log4j.Logger;
+import org.apache.log4j.MDC;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,8 +20,13 @@ import java.util.concurrent.ThreadFactory;
  * Created by zhouhongxuan on 2016/6/20.
  */
 public class FileManger extends HttpServlet {
+    private static Logger logger = Logger.getLogger(FileManger.class);
+
     public void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String remoteAddr = request.getRemoteAddr();
+        MDC.put("ip", remoteAddr);
+
         request.setCharacterEncoding("utf-8");
         String uri = request.getRequestURI();
         String action = uri.substring(uri.lastIndexOf("/") + 1, uri.lastIndexOf("."));
@@ -77,6 +84,7 @@ public class FileManger extends HttpServlet {
                         File file = new File(filePath);
                         item.write(file);
                         msg = fileName + " Upload SUCCESS!";
+                        logger.info("Upload file: " + fileName);
                         break;
                     }
                 }
